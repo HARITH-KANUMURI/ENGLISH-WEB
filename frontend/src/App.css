@@ -1,0 +1,801 @@
+/* ======================================================
+   THEME VARIABLES
+====================================================== */
+
+.app.dark {
+  --bg-main: #0f172a;
+  --bg-surface: #020617;
+  --bg-card: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --primary: #2563eb;
+}
+
+.app.light {
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #2563eb;
+}
+
+/* ======================================================
+   GLOBAL
+====================================================== */
+
+.app {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--bg-surface);
+  flex-shrink: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: var(--bg-surface);
+  flex-shrink: 0;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+.contact-btn {
+  background: var(--primary);
+  color: white;
+}
+
+/* ======================================================
+   MAIN LAYOUT
+====================================================== */
+
+.page-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/* ======================================================
+   SIDEBAR
+====================================================== */
+
+.sidebar {
+  background: var(--bg-surface);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transition: width 0.25s ease;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  width: 240px;
+}
+
+.sidebar.closed {
+  width: 0;
+}
+
+.sidebar h3 {
+  padding: 15px;
+}
+
+.sidebar-content {
+  padding: 0 15px 15px;
+  overflow-y: auto;
+  height: calc(100vh - 120px);
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  background: transparent;
+  color: var(--text-main);
+  text-align: left;
+}
+
+.sidebar .active {
+  background: var(--primary);
+  color: white;
+}
+
+/* ======================================================
+   DASHBOARD CARDS
+====================================================== */
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 750px;
+}
+
+.wide-card {
+  min-height: 140px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.7;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wide-card h3 {
+  margin-bottom: 6px;
+}
+
+.wide-card p {
+  color: var(--text-muted);
+}
+
+.wide-card button {
+  background: var(--primary);
+  color: white;
+}
+
+.wide-card.disabled {
+  opacity: 0.5;
+}
+
+/* ======================================================
+   QUIZ
+====================================================== */
+
+.quiz-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.quiz-card {
+  width: 100%;
+  max-width: 720px;
+  padding: 28px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  line-height: 1.8;
+}
+
+.question-text {
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.quiz-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* ======================================================
+   LOADING
+====================================================== */
+
+.quiz-loading {
+  margin-top: 60px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* ======================================================
+   RESULT
+====================================================== */
+
+.result-card {
+  max-width: 500px;
+  padding: 30px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ======================================================
+   STATIC PAGES
+====================================================== */
+
+.blank-page {
+  padding: 40px;
+  opacity: 0.8;
+}
+/* ---------- HEADER ---------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--bg-surface);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* RULE 4 */
+}
+
+/* ---------- THEME TOGGLE ---------- */
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  background: var(--bg-surface);   /* SAME AS HEADER */
+  border: 2px solid var(--primary);
+
+  color: var(--primary);
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-main);
+}
+
+
+.signin-btn {
+  padding: 8px 14px;
+}
+
+/* ---------- COMING SOON ---------- */
+
+.coming-soon {
+  padding: 60px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ---------- QUIZ ---------- */
+
+.quiz-loading {
+  margin-top: 50px;
+  text-align: center;
+}
+.quiz-topic {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+/* ---------- AUTH PAGES (LOGIN / SIGNUP) ---------- */
+
+.auth-page {
+  min-height: calc(100vh - 120px); /* header + navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-card input {
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: var(--bg-surface);
+  color: var(--text-main);
+}
+
+.app.dark .auth-card input {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.auth-card button {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  opacity: 0.95;
+}
+
+.auth-card p {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.auth-card a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.auth-card a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- AUTH ERROR ---------- */
+
+.auth-card .error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+/* ---------- PROFILE BUTTON ---------- */
+
+.profile-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.profile-avatar-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+/* Larger avatar for profile page */
+.profile-avatar-img.large {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  display: block;
+}
+/* ---------- DASHBOARD GRID (NO SIDEBAR) ---------- */
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+/* Make cards taller & centered */
+.card-grid-3 .wide-card {
+  min-height: 240px;          /* ⬅ increased height */
+  padding: 28px;              /* more breathing room */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+
+/* Button alignment */
+.card-grid-3 .wide-card button {
+  align-self: flex-end;
+}
+/* ---------- PROFILE PAGE ---------- */
+
+.profile-card {
+  max-width: 480px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-avatar-small {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  object-fit: cover;
+}
+
+.profile-email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.profile-details {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+/* ======================================================
+   MOBILE RESPONSIVE (≤768px)
+====================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- HEADER ---------- */
+
+  .header {
+    padding: 10px 14px;
+  }
+
+  .header-left h2 {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  /* ---------- NAVBAR ---------- */
+
+  .navbar {
+    padding: 8px 14px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- PAGE BODY ---------- */
+
+  .page-body {
+    flex-direction: column;
+  }
+
+  /* ==================================================
+     MOBILE SIDEBAR (BELOW HEADER + NAVBAR)
+     Header (~56px) + Navbar (~44px) = 100px
+  ================================================== */
+
+  .sidebar {
+    position: fixed;
+    top: 100px;                          /* ⬅ IMPORTANT */
+    left: 0;
+
+    width: 240px;
+    height: calc(100vh - 100px);
+
+    background: var(--bg-surface);
+    z-index: 1200;
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-content {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+
+  /* ---------- CONTENT ---------- */
+
+  .content {
+    padding: 16px;
+  }
+
+  /* ---------- DASHBOARD ---------- */
+
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .card-grid-3 .wide-card {
+    min-height: 200px;
+  }
+
+  .card-column {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* ---------- QUIZ ---------- */
+
+  .quiz-page {
+    padding: 20px 0;
+  }
+
+  .quiz-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .question-text {
+    font-size: 1rem;
+  }
+
+  .option {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- PROFILE ---------- */
+
+  .profile-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  /* ---------- AUTH ---------- */
+
+  .auth-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+}
+.sidebar-overlay {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1100;
+}
+/* ======================================================
+   DASHBOARD
+====================================================== */
+
+.dashboard-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------- STATS ---------- */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  margin: 8px 0;
+}
+
+.stat-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ---------- ACTIONS ---------- */
+
+.dashboard-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.dashboard-actions button {
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.95rem;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+}
+/* ---------- DASHBOARD SECTIONS ---------- */
+
+.section-title {
+  margin: 28px 0 12px;
+  font-size: 1rem;
+}
+
+/* ---------- PROGRESS CHART ---------- */
+
+.progress-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 50px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.progress-bar {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+}
+
+/* ---------- TOPIC TABLE ---------- */
+
+.topic-table {
+  margin-top: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  padding: 10px 14px;
+}
+
+.table-header {
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+}
+
+.table-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.muted {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+  .progress-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
