@@ -22,7 +22,13 @@ export default function Sidebar({
   closeSidebar,
 }) {
   const location = useLocation();
+
   const isProfilePage = location.pathname === "/profile";
+  const isConceptPage = location.pathname === "/concepts";
+
+  const visibleTopics = isConceptPage
+    ? TOPICS.filter((t) => t !== "random")
+    : TOPICS;
 
   return (
     <aside className="sidebar open">
@@ -31,20 +37,16 @@ export default function Sidebar({
       <div className="sidebar-content">
         {isProfilePage ? (
           <>
-            <button onClick={() => closeSidebar && closeSidebar()}>
-              Profile
-            </button>
-            <button onClick={() => closeSidebar && closeSidebar()}>
-              Dashboard
-            </button>
+            <button onClick={closeSidebar}>Profile</button>
+            <button onClick={closeSidebar}>Dashboard</button>
           </>
         ) : (
-          TOPICS.map((topic) => (
+          visibleTopics.map((topic) => (
             <button
               key={topic}
               className={selectedTopic === topic ? "active" : ""}
               onClick={() => {
-                setSelectedTopic(topic);   // ✅ ONLY SELECT TOPIC
+                setSelectedTopic(topic);
                 closeSidebar && closeSidebar();
               }}
             >

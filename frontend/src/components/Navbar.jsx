@@ -6,6 +6,7 @@ export default function Navbar({ toggleSidebar }) {
   return (
     <nav className="navbar">
       <button onClick={toggleSidebar}>☰</button>
+
       <button onClick={() => navigate("/concepts")}>Concepts</button>
       <button onClick={() => navigate("/learn")}>Practice with Learn</button>
       <button onClick={() => navigate("/contest")}>Contest</button>

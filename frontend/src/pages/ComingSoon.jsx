@@ -1,7 +1,8 @@
 export default function ComingSoon() {
   return (
-    <div className="blank-page">
-      <h2>🚧 Features are going to be added soon</h2>
+    <div className="coming-soon">
+      <h2>Features coming soon 🚀</h2>
+      <p>We are working on this section.</p>
     </div>
   );
 }
